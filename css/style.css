@@ -1,0 +1,21 @@
+body {
+  position: relative;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+.todo-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+}
+
+.task-input {
+  width: 300px;
+  height: 50px;
+  border-radius: 30px;
+  border: 1px solid #c0c0c0;
+  margin-right: 20px;
+}
