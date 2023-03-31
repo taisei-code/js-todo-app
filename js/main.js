@@ -11,6 +11,10 @@ addBtn.addEventListener('click', event => {
     let taskShow = document.querySelector('.task-list');
     taskShow.classList.remove('task-hide');
     taskShow.classList.add('task-show');
+
+    let taskName       = document.querySelector('.task-name');
+    taskName.innerHTML = task.value;
+
 })
 
 // Deleteボタンがクリックされたとき
