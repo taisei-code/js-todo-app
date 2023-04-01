@@ -19,6 +19,12 @@ taskSubmit.addEventListener('click', e => {
   // タスク追加後にフォームを空にする
   taskValue.value = ''
 
+  // 削除ボタン作成
+  const deleteBtn     = document.createElement('button');
+  deleteBtn.innerHTML = 'delete';
+  listItem.appendChild(deleteBtn);
+  deleteBtn.classList.add('delete-btn');
+
 })
 
 

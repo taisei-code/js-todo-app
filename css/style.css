@@ -56,3 +56,8 @@ input[type="checkbox"] {
 .input-area {
   text-align: center;
 }
+
+.delete-btn {
+  display: block;
+  margin-left: 30px;
+}
