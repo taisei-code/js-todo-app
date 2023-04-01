@@ -9,7 +9,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 500px;
+  width: 700px;
 }
 
 h1 {
@@ -18,8 +18,8 @@ h1 {
   margin-bottom: 30px;
   letter-spacing: 0.05em;
 }
-.task-input {
-  width: 300px;
+.task_value {
+  min-width: 300px;
   height: 50px;
   border-radius: 30px;
   border: 1px solid #c0c0c0;
@@ -28,8 +28,9 @@ h1 {
 }
 
 .task-list {
+  max-width: 300px;
   padding: 0 60px;
-  margin-top: 30px;
+  margin: 30px auto 0;
 }
 
 .task-list li {
@@ -52,10 +53,6 @@ input[type="checkbox"] {
   margin: 0 15px 0 0;
 }
 
-.task-hide {
-  display: none;
-}
-
-.task-show {
-  display: block;
+.input-area {
+  text-align: center;
 }

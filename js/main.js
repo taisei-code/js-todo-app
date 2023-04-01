@@ -1,30 +1,28 @@
 // 変数にDOM要素を代入
 
-const task     = document.querySelector('.task-input');
-const addBtn    = document.querySelector('.add-click');
-const deleteBtn = document.querySelector('.delete-click');
+const taskValue  = document.querySelector('.task_value');
+const taskSubmit = document.querySelector('.task_submit');
+const taskList   = document.querySelector('.task-list');
 
-// Addボタンがクリックされたとき
-addBtn.addEventListener('click', event => {
+// タスク追加ボタンをクリックした時の処理
 
-    // タスク表示・非表示切り替え
-    let taskShow = document.querySelector('.task-list');
-    taskShow.classList.remove('task-hide');
-    taskShow.classList.add('task-show');
+taskSubmit.addEventListener('click', e => {
 
-    let taskName       = document.querySelector('.task-name');
-    taskName.innerHTML = task.value;
+  // submitイベントの動作を止める
+  e.preventDefault();
+
+  // 入力したタスクを表示する
+  const listItem       = document.createElement('li');
+  const showItem       = taskList.appendChild(listItem);
+  showItem.textContent = taskValue.value;
+
+  // タスク追加後にフォームを空にする
+  taskValue.value = ''
 
 })
 
-// Deleteボタンがクリックされたとき
-deleteBtn.addEventListener('click', event => {
 
-     // タスク表示・非表示切り替え
-     let taskShow = document.querySelector('.task-list');
-     taskShow.classList.add('task-hide');
-     taskShow.classList.remove('task-show');
-}) 
+
 
 
 
