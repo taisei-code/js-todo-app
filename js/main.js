@@ -5,7 +5,6 @@ const taskSubmit = document.querySelector('.task_submit');
 const taskList   = document.querySelector('.task-list');
 
 // タスク追加ボタンをクリックした時の処理
-
 taskSubmit.addEventListener('click', e => {
 
   // submitイベントの動作を止める
@@ -25,7 +24,17 @@ taskSubmit.addEventListener('click', e => {
   listItem.appendChild(deleteBtn);
   deleteBtn.classList.add('delete-btn');
 
+  // タスク削除ボタンをクリックした時の処理
+  deleteBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    // タスクを削除
+    listItem.remove();
+
+  })
+
 })
+
 
 
 
