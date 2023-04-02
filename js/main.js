@@ -1,6 +1,6 @@
 // 変数にDOM要素を代入
 
-const taskValue  = document.querySelector('.task_value');
+const taskInput  = document.querySelector('.task_input');
 const taskSubmit = document.querySelector('.task_submit');
 const taskList   = document.querySelector('.task-list');
 
@@ -11,12 +11,16 @@ taskSubmit.addEventListener('click', e => {
   e.preventDefault();
 
   // 入力したタスクを表示する
-  const listItem       = document.createElement('li');
-  const showItem       = taskList.appendChild(listItem);
-  showItem.textContent = taskValue.value;
+  const listItem  = document.createElement('li');
+  taskList.appendChild(listItem);
+  
+  const taskValue = document.createElement('p');
+  const showTask  = listItem.appendChild(taskValue);
+
+  showTask.textContent = taskInput.value;
 
   // タスク追加後にフォームを空にする
-  taskValue.value = ''
+  taskInput.value = ''
 
   // 削除ボタン作成
   const deleteBtn     = document.createElement('button');
