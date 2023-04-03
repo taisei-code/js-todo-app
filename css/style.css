@@ -4,14 +4,6 @@ body {
   height: 100vh;
 }
 
-.todo-wrapper {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-}
-
 h1 {
   font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN', sans-serif;
   font-size: 48px;
@@ -26,11 +18,28 @@ h2 {
   margin: 20px 0;
 }
 
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: .7;
+}
+
+.todo-wrapper {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+}
+
+
 .task_input {
   width: 70%;
   min-width: 300px;
   height: 50px;
-  border-radius: 30px;
+  border-radius: 4px;
   border: 1px solid #c0c0c0;
   margin-right: 20px;
   padding: 0 15px;
@@ -73,6 +82,14 @@ input[type="checkbox"] {
 .delete-btn {
   display: block;
   margin-left: 30px;
+  display: inline-block;
+  width: 80px;
+  padding: 0 16px;
+  border: none;
+  color: #fff;
+  background: #238f76;
+  min-height: 32px;
+  border-radius: 4px;
 }
 
 .task_submit {

@@ -10,10 +10,13 @@ taskSubmit.addEventListener('click', e => {
   // submitイベントの動作を止める
   e.preventDefault();
 
+  // 未入力ならタスクを追加しない
+  if (taskInput.value === '') return
+
   // 入力したタスクを表示する
   const listItem  = document.createElement('li');
   taskList.appendChild(listItem);
-  
+
   const taskValue = document.createElement('p');
   const showTask  = listItem.appendChild(taskValue);
 
