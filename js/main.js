@@ -27,7 +27,7 @@ taskSubmit.addEventListener('click', e => {
 
   // 削除ボタン作成
   const deleteBtn     = document.createElement('button');
-  deleteBtn.innerHTML = 'delete';
+  deleteBtn.innerHTML = '削除する';
   listItem.appendChild(deleteBtn);
   deleteBtn.classList.add('delete-btn');
 
