@@ -11,8 +11,6 @@ h1 {
   text-align: center;
   margin-bottom: 30px;
   letter-spacing: 0.05em;
-  padding-bottom: 15px;
-   border-bottom: 2px solid #eee;
 }
 
 h2 {
@@ -24,6 +22,11 @@ h2 {
 
 input:focus {
   outline: none;
+}
+
+::placeholder {
+  font-family: 'Helvetica Neue',sans-serif;
+  letter-spacing: 0.08em;
 }
 
 button {
@@ -49,12 +52,12 @@ button:hover {
   height: 50px;
   border-radius: 4px;
   border: 1px solid #c0c0c0;
-  margin-right: 20px;
+  margin: 0 auto;
   padding: 0 15px;
+  caret-color: auto;
 }
 
 .task-list {
-  max-width: 500px;
   margin: 30px auto 0;
 }
 
@@ -63,9 +66,12 @@ button:hover {
   max-width: 500px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   list-style: none;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 12px;
 }
 
 .task-list li:not(:last-child) {
@@ -76,6 +82,8 @@ button:hover {
   width: 60%;
   font-size: 20px;
   line-height: 1.5;
+  font-family: 'Helvetica Neue',sans-serif;
+  letter-spacing: 0.08em;
 }
  
 input[type="checkbox"] {
@@ -101,7 +109,7 @@ input[type="checkbox"] {
 }
 
 .task_submit {
-  display: inline-block;
+  display: none;
   width: 88px;
   padding: 0 16px;
   border: none;
