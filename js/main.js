@@ -13,10 +13,15 @@ taskSubmit.addEventListener('click', e => {
   // 未入力ならタスクを追加しない
   if (taskInput.value === '') return
 
-  // 入力したタスクを表示する
   const listItem  = document.createElement('li');
   taskList.appendChild(listItem);
 
+  // タスク完了/未完了を管理するチェックボックス
+  const finishBtn = document.createElement('input');
+  finishBtn.setAttribute('type', 'checkbox')
+  listItem.appendChild(finishBtn);
+
+   // 入力されたタスクを表示する
   const taskValue = document.createElement('p');
   const showTask  = listItem.appendChild(taskValue);
 
