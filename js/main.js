@@ -36,6 +36,15 @@ taskSubmit.addEventListener('click', e => {
   listItem.appendChild(deleteBtn);
   deleteBtn.classList.add('delete-btn');
 
+  // チェックボックスをクリックした時の処理
+  finishBtn.addEventListener('click', e => {
+    if(finishBtn.checked) {
+      taskValue.classList.add('task-check');
+    } else {
+      taskValue.classList.remove('task-check');
+    }
+  })
+
   // タスク削除ボタンをクリックした時の処理
   deleteBtn.addEventListener('click', e => {
     e.preventDefault();

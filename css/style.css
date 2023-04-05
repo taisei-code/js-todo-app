@@ -118,3 +118,7 @@ input[type="checkbox"] {
   min-height: 32px;
   border-radius: 4px;
 }
+
+.task-check {
+  text-decoration: line-through;
+}
