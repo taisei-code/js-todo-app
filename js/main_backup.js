@@ -4,22 +4,15 @@ const taskInput  = document.querySelector('.task_input');
 const taskSubmit = document.querySelector('.task_submit');
 const taskList   = document.querySelector('.task-list');
 
-
+// タスク追加ボタンをクリックした時の処理
 taskSubmit.addEventListener('click', e => {
+
+  // submitイベントの動作を止める
   e.preventDefault();
 
   // 未入力ならタスクを追加しない
   if (taskInput.value === '') return
-  
-  taskCreate();
 
-  // タスク追加後にフォームを空にする
-  taskInput.value = ''
-})
-
-function taskCreate() {
-
-  // タスクを格納するリスト
   const listItem  = document.createElement('li');
   taskList.appendChild(listItem);
 
@@ -33,6 +26,9 @@ function taskCreate() {
   const showTask  = listItem.appendChild(taskValue);
 
   showTask.textContent = taskInput.value;
+
+  // タスク追加後にフォームを空にする
+  taskInput.value = ''
 
   // 削除ボタン作成
   const deleteBtn     = document.createElement('button');
@@ -52,8 +48,17 @@ function taskCreate() {
   // タスク削除ボタンをクリックした時の処理
   deleteBtn.addEventListener('click', e => {
     e.preventDefault();
+
     // タスクを削除
     listItem.remove();
+
   })
 
-}
+})
+
+
+
+
+
+
+
