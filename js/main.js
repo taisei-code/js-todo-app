@@ -4,6 +4,8 @@ const taskInput  = document.querySelector('.task_input');
 const taskSubmit = document.querySelector('.task_submit');
 const taskList   = document.querySelector('.task-list');
 
+// 追加されたタスクを配列で管理
+let todoData = [];
 
 taskSubmit.addEventListener('click', e => {
   e.preventDefault();
@@ -11,11 +13,25 @@ taskSubmit.addEventListener('click', e => {
   // 未入力ならタスクを追加しない
   if (taskInput.value === '') return
   
-  taskCreate();
+  // 入力された文字列を取得してオブジェクトに格納
+  let todoObj = {
+    content: taskInput.value,
+    isDone: false
+  }
+  todoData.push(todoObj);
 
+  taskCreate();
+ 
   // タスク追加後にフォームを空にする
   taskInput.value = ''
+
+  updateLS()
 })
+
+// ローカルストレージにデータを保存
+function updateLS() {
+  localStorage.setItem('myTodo', JSON.stringify(todoData));
+}
 
 function taskCreate() {
 
