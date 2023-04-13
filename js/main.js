@@ -33,6 +33,11 @@ function updateLS() {
   localStorage.setItem('myTodo', JSON.stringify(todoData));
 }
 
+// ローカルストレージに保存されたデータを取得
+function getTodoData() {
+  return JSON.parse(localStorage.getItem('myTodo')) || [] ;
+}
+
 function taskCreate() {
 
   // タスクを格納するリスト
