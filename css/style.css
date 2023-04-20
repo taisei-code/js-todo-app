@@ -119,6 +119,6 @@ input[type="checkbox"] {
   border-radius: 4px;
 }
 
-.task-check {
+.task-list li p.task-check {
   text-decoration: line-through;
 }

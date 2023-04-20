@@ -61,11 +61,6 @@ function taskCreate(todo) {
   listItem.appendChild(deleteBtn);
   deleteBtn.classList.add('delete-btn');
 
-  if(todo.isDone) {
-    finishBtn.checked = true
-    showTask.classList.add('task-check');
-  }
-
   listItem.addEventListener('click', () => {
      // チェックボックスをクリックした時の処理
     if(finishBtn.checked) {
@@ -77,7 +72,6 @@ function taskCreate(todo) {
     }
      
      updateLS();
-
   })
     
 }
