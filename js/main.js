@@ -24,8 +24,15 @@ taskForm.addEventListener('submit', e => {
   
   // ローカルストレージにデータを保存
   updateLS();
-  // ローカルストレージに保存されたデータを取得して、
-  updateTodo();
+  // ローカルストレージに保存されたデータを取得して、表示
+  if(taskList) {
+    taskList.innerHTML = "";
+  }
+  todoData = getTodoData()
+  todoData.forEach(todo => {
+    taskCreate(todo);
+  })
+  
 })
 
 // ローカルストレージにデータを保存
@@ -67,7 +74,7 @@ function taskCreate(todo) {
   }
 
   listItem.addEventListener('click', () => {
-     // チェックボックスをクリックした時の処理
+    // チェックボックスをクリックした時の処理
     if(finishBtn.checked) {
       showTask.classList.add('task-check');
       todo.isDone = true;
@@ -75,21 +82,31 @@ function taskCreate(todo) {
       taskValue.classList.remove('task-check');
       todo.isDone = false;
     }
-     
-     updateLS();
-
+  
+    updateLS();
+  
   })
-    
+
 }
 
-function updateTodo() {
-  taskList.innerHTML = "";
-  console.log(taskList);
-  todoData = getTodoData();
-  todoData.forEach(todo => {
-      taskCreate(todo);
-  })
-}
+
+// function updateTodo() {
+//   taskList.innerHTML = "";
+//   todoData = getTodoData();
+//   todoData.forEach(todo => {
+//       taskCreate(todo);
+//   })
+// }
+
+
+/*
+ コードを綺麗にする
+
+ 関数は関数、イベントはイベントで管理したい
+ チェックボックスをクリック時の処理をtaskCreate()の外で定義したい
+ その場合、taskCreate()内で定義されてる変数を扱えない
+
+*/
 
 
 
