@@ -14,7 +14,8 @@ taskForm.addEventListener('submit', e => {
   // 入力された文字列を取得してオブジェクトに格納
   let todoObj = {
     content: taskInput.value,
-    isDone: false
+    isDone: false,
+    delete: false
   };
   if(todoObj.content) {
     todoData.push(todoObj);
@@ -34,15 +35,6 @@ taskForm.addEventListener('submit', e => {
   })
   
 })
-
-// ローカルストレージにデータを保存
-function updateLS() {
-  localStorage.setItem('myTodo', JSON.stringify(todoData));
-}
-// ローカルストレージに保存されたデータを取得
-function getTodoData() {
-  return JSON.parse(localStorage.getItem('myTodo')) || [] ;
-}
 
 // タスクのリストを1つずつ作成する関数
 function taskCreate(todo) {
@@ -73,7 +65,7 @@ function taskCreate(todo) {
     showTask.classList.add('task-check');
   }
 
-  listItem.addEventListener('click', () => {
+  finishBtn.addEventListener('click', () => {
     // チェックボックスをクリックした時の処理
     if(finishBtn.checked) {
       showTask.classList.add('task-check');
@@ -82,21 +74,28 @@ function taskCreate(todo) {
       taskValue.classList.remove('task-check');
       todo.isDone = false;
     }
-  
     updateLS();
-  
+  })
+
+  deleteBtn.addEventListener('click', () => {
+    if(!todo.delete) {
+      todo.delete = true;
+      listItem.remove();
+      updateLS();
+    }
   })
 
 }
 
+// ローカルストレージにデータを保存
+function updateLS() {
+  localStorage.setItem('myTodo', JSON.stringify(todoData));
+}
+// ローカルストレージに保存されたデータを取得
+function getTodoData() {
+  return JSON.parse(localStorage.getItem('myTodo')) || [] ;
+}
 
-// function updateTodo() {
-//   taskList.innerHTML = "";
-//   todoData = getTodoData();
-//   todoData.forEach(todo => {
-//       taskCreate(todo);
-//   })
-// }
 
 
 /*
