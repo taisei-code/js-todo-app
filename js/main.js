@@ -30,14 +30,14 @@ taskForm.addEventListener('submit', e => {
     taskList.innerHTML = "";
   }
   todoData = getTodoData()
-  todoData.forEach(todo => {
-    taskCreate(todo);
+  todoData.forEach(todos => {
+    taskCreate(todos);
   })
   
 })
 
 // タスクのリストを1つずつ作成する関数
-function taskCreate(todo) {
+function taskCreate(todos) {
 
   // タスクを格納するリスト
   const listItem  = document.createElement('li');
@@ -52,7 +52,7 @@ function taskCreate(todo) {
   const taskValue = document.createElement('p');
   const showTask  = listItem.appendChild(taskValue);
   
-  showTask.textContent = todo.content;
+  showTask.textContent = todos.content;
 
   // 削除ボタン作成
   const deleteBtn     = document.createElement('button');
@@ -60,7 +60,7 @@ function taskCreate(todo) {
   listItem.appendChild(deleteBtn);
   deleteBtn.classList.add('delete-btn');
 
-  if(todo.isDone) {
+  if(todos.isDone) {
     finishBtn.checked = true
     showTask.classList.add('task-check');
   }
@@ -69,18 +69,23 @@ function taskCreate(todo) {
     // チェックボックスをクリックした時の処理
     if(finishBtn.checked) {
       showTask.classList.add('task-check');
-      todo.isDone = true;
+      todos.isDone = true;
     } else {
       taskValue.classList.remove('task-check');
-      todo.isDone = false;
+      todos.isDone = false;
     }
     updateLS();
   })
 
   deleteBtn.addEventListener('click', () => {
-    if(!todo.delete) {
-      todo.delete = true;
+    // 削除ボタンをクリックした時の処理
+    if(!todos.delete) {
+      todos.delete = true;
       listItem.remove();
+      const newTodos = todoData.filter(todo => {
+        return todo.delete == false
+      })
+      todoData = newTodos;
       updateLS();
     }
   })
